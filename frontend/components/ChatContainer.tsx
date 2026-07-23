@@ -1,8 +1,12 @@
 
 import MessageBubble from "./MessageBubble";
 
+type Message = {
+    text: string,
+    sender: "user" | "ai",
+}
 type ChatContainerProps = {
-    messages: string[];
+    messages: Message[];
 };
 export default function ChatContainer({messages}: ChatContainerProps){
     return(
@@ -21,7 +25,7 @@ export default function ChatContainer({messages}: ChatContainerProps){
                     {messages.map((msg, index) => (
                         <MessageBubble
                             key={index}
-                            text={msg}
+                            text={msg.text}
                         />
                     ))}
                 </div>

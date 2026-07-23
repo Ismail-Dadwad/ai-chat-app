@@ -6,10 +6,16 @@ import ChatContainer from "@/components/ChatContainer";
 import ChatInput from "@/components/ChatInput";
 
 export default function Home(){
-  const [messages, setMessages] = useState<string[]>([])
+
+  type Message = {
+    text : string,
+    sender: "user" | "ai",
+  }
+
+  const [messages, setMessages] = useState<Message[]>([])
 
   const addMessage = (message: string) =>{
-    setMessages((prev) => [...prev, message]);
+    setMessages((prev) => [...prev, {text: message, sender: "user",},]);
   }
   return(
     <main className="flex min-h-screen flex-col bg-gray-100">

@@ -15,7 +15,18 @@ export default function Home(){
   const [messages, setMessages] = useState<Message[]>([])
 
   const addMessage = (message: string) =>{
-    setMessages((prev) => [...prev, {text: message, sender: "user",},]);
+    setMessages((prev) => [...prev, 
+      {
+        text: message, sender: "user",}
+    ]);
+    setTimeout(() => {
+      setMessages((prev) => [...prev, 
+      {
+        text: "This is a fake AI reply.",
+        sender: "ai",
+      },
+    ]);
+    }, 1000)
   }
   return(
     <main className="flex min-h-screen flex-col bg-gray-100">

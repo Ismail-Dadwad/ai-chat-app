@@ -26,6 +26,7 @@ export default function ChatContainer({messages}: ChatContainerProps){
                         <MessageBubble
                             key={index}
                             text={msg.text}
+                            sender={msg.sender}
                         />
                     ))}
                 </div>

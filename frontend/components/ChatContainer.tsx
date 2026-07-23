@@ -1,4 +1,6 @@
 
+import MessageBubble from "./MessageBubble";
+
 type ChatContainerProps = {
     messages: string[];
 };
@@ -17,11 +19,10 @@ export default function ChatContainer({messages}: ChatContainerProps){
             ): (
                 <div className="mx-auto max-w-4xl space-y-4">
                     {messages.map((msg, index) => (
-                        <div 
-                            key={index} 
-                            className="rounded-lg bg-blue-100 p-3">
-                            <strong>You:</strong> {msg}
-                        </div>
+                        <MessageBubble
+                            key={index}
+                            text={msg}
+                        />
                     ))}
                 </div>
             )}
